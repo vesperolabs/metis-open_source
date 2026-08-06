@@ -29,7 +29,7 @@ The interface and generated responses are currently in Polish. Metis is a portfo
 
 Metis has no user accounts or central case database.
 
-- Case profiles and full-version conversation history are stored in the browser.
+- Case profiles and public-demo conversation history are stored in the browser.
 - Demo context and results are limited to the current browser session.
 - AI requests are sent through server-only Next.js API routes to Groq.
 - `GROQ_API_KEY` is never exposed to the browser.
@@ -59,7 +59,6 @@ Open [http://localhost:3000](http://localhost:3000).
 Set these values in `.env.local`:
 
 ```dotenv
-DEMO_PASSWORD=choose-a-local-access-code
 GROQ_API_KEY=gsk_your_key_here
 USE_MANUAL_AI=false
 ```

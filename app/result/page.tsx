@@ -11,7 +11,7 @@ import {
   type AnalysisResult,
 } from "@/lib/analysis";
 import { track } from "@/lib/analytics";
-import FullAccessCard from "@/app/components/FullAccessCard";
+import PublicDemoCard from "@/app/components/PublicDemoCard";
 import { AppHeader, LegalFooter } from "@/app/components/AppChrome";
 import { loadStoredAnalysis, type AnalysisSource } from "@/lib/result-storage";
 import { saveSentReply } from "@/lib/message-history";
@@ -454,7 +454,7 @@ export default function ResultPage() {
           </section>
         )}
 
-        {source === "demo" && <FullAccessCard className="mt-5" />}
+        {source === "demo" && <PublicDemoCard className="mt-5" />}
 
         <LegalFooter className="mt-7" />
       </div>

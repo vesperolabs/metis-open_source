@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import AccessCodeLinks from "@/app/components/AccessCodeLinks";
-import FullAccessCard from "@/app/components/FullAccessCard";
+import PublicDemoCard from "@/app/components/PublicDemoCard";
 import HeroPhone from "@/app/components/HeroPhone";
 import CommunicationHubPreview from "@/app/components/CommunicationHubPreview";
 import TrustSection from "@/app/components/TrustSection";
 import { LegalLinks, Wordmark } from "@/app/components/AppChrome";
-import BetaBanner from "@/app/components/BetaBanner";
+import DemoBanner from "@/app/components/DemoBanner";
 import { track } from "@/lib/analytics";
 import {
   loadSampleAnalysis,
@@ -48,12 +47,12 @@ const FAQS = [
   {
     question: "Co się dzieje z moimi wiadomościami?",
     answer:
-      "Treść trafia przez serwer Metis do modelu AI — Metis nie zapisuje jej we własnej bazie. W pełnej wersji kontekst sprawy i historia wiadomości są przechowywane w Twojej przeglądarce; możesz je usunąć. Według standardowej polityki API dostawcy modelu dane wejściowe i wyniki są zwykle usuwane w ciągu 30 dni, z wyjątkami bezpieczeństwa i prawa. Demo nie tworzy profilu sprawy ani historii.",
+      "Treść trafia przez serwer Metis do modelu AI — Metis nie zapisuje jej we własnej bazie. W publicznym demo kontekst sprawy i historia wiadomości są przechowywane w Twojej przeglądarce; możesz je usunąć. Według standardowej polityki API dostawcy modelu dane wejściowe i wyniki są zwykle usuwane w ciągu 30 dni, z wyjątkami bezpieczeństwa i prawa. Szybka próba nie tworzy profilu sprawy ani historii.",
   },
   {
-    question: "Jak dostać pełny dostęp?",
+    question: "Czy wszystkie funkcje są dostępne?",
     answer:
-      "Jedną własną wiadomość możesz sprawdzić bezpłatnie w demo. Jeśli chcesz analizować kolejne wiadomości, prowadzić wątki i zachować kontekst sprawy, napisz po kod do pełnej wersji beta. Dostęp uruchamiam obecnie osobiście.",
+      "Tak. Metis jest publicznym demem portfolio: bez konta i bez kodu możesz zapisać kontekst sprawy w swojej przeglądarce, analizować wiadomości, prowadzić osobne wątki, wracać do historii i sprawdzać własne odpowiedzi.",
   },
   {
     question: "Skąd mam wiedzieć, że analiza jest trafna?",
@@ -83,10 +82,10 @@ export default function Home() {
           <Wordmark />
           <Link
             href="/setup"
-            onClick={() => track("landing_code_clicked")}
+            onClick={() => track("landing_full_demo_clicked", { placement: "header" })}
             className="inline-flex min-h-11 items-center text-right text-sm font-semibold text-accent hover:text-accent-hover"
           >
-            Masz kod dostępu? Wejdź do aplikacji →
+            Otwórz publiczne demo →
           </Link>
         </div>
       </header>
@@ -105,15 +104,15 @@ export default function Home() {
               spokojną, stanowczą odpowiedź.
             </p>
             <div className="mt-6 max-w-xl">
-              <BetaBanner />
+              <DemoBanner />
             </div>
             <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
               <Link
-                href="/demo"
-                onClick={() => track("landing_demo_clicked", { placement: "hero" })}
+                href="/setup"
+                onClick={() => track("landing_full_demo_clicked", { placement: "hero" })}
                 className="inline-flex min-h-14 w-full items-center justify-center rounded-[10px] bg-accent px-8 py-4 font-semibold text-white transition-colors hover:bg-accent-hover sm:w-auto"
               >
-                Sprawdź 1 wiadomość w demo →
+                Otwórz aplikację →
               </Link>
               <button
                 type="button"
@@ -124,7 +123,7 @@ export default function Home() {
               </button>
             </div>
             <p className="mt-4 text-xs leading-relaxed text-ink-muted sm:text-sm">
-              Bez konta · kontekst demo nie jest zapamiętywany · imiona możesz zmienić
+              Bez konta · dane zapisują się tylko w tej przeglądarce · imiona możesz zmienić
             </p>
           </div>
           <HeroPhone />
@@ -157,7 +156,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-accent">
-              W pełnej wersji
+              W publicznym demo
             </p>
             <h2
               id="communication-hub-heading"
@@ -264,7 +263,7 @@ export default function Home() {
         </section>
 
         <div className="mx-auto mt-16 max-w-3xl">
-          <FullAccessCard />
+          <PublicDemoCard />
         </div>
 
         <section className="mx-auto mt-16 max-w-3xl" aria-labelledby="faq-heading">
@@ -295,43 +294,32 @@ export default function Home() {
             oraz jak napisać spokojną, stanowczą odpowiedź.
           </p>
           <Link
-            href="/demo"
-            onClick={() => track("landing_demo_clicked", { placement: "final" })}
+            href="/setup"
+            onClick={() => track("landing_full_demo_clicked", { placement: "final" })}
             className="mt-6 inline-flex min-h-14 w-full items-center justify-center rounded-[10px] bg-accent px-7 py-3.5 font-semibold text-white transition-colors hover:bg-accent-hover sm:w-auto"
           >
-            Sprawdź 1 wiadomość w demo →
+            Otwórz publiczne demo →
           </Link>
           <p className="mt-3 text-xs text-ink-muted">
-            Jednorazowe demo · kontekst próby nie jest zapamiętywany
-          </p>
-        </section>
-
-        <section className="mt-10 text-center">
-          <p className="text-sm text-ink-muted">
-            Masz kod dostępu?{" "}
-            <Link
-              href="/setup"
-              onClick={() => track("landing_code_clicked")}
-              className="inline-flex min-h-11 items-center font-medium text-accent underline underline-offset-4 hover:text-accent-hover"
-            >
-              Wejdź do aplikacji →
-            </Link>
+            Bez konta · pełne funkcje · dane przechowywane lokalnie
           </p>
         </section>
 
         <footer className="mt-16 border-t border-border pt-9 text-center text-xs leading-relaxed text-ink-muted">
           <Wordmark />
-          <div className="mx-auto mb-8 max-w-xl">
-            <p className="mb-3 mt-6 text-sm text-ink-body">
-              Chcesz analizować kolejne wiadomości? Napisz po kod do pełnej wersji beta:
-            </p>
-            <AccessCodeLinks className="justify-center" />
-          </div>
-          <p>Metis · wersja beta · bez konta</p>
+          <p className="mt-6">Metis · publiczne demo portfolio · open source · bez konta</p>
           <p className="mt-2">
             Metis zapewnia pomoc organizacyjną, nie porady prawne. Ważne decyzje
             skonsultuj z prawnikiem.
           </p>
+          <a
+            href="https://github.com/vesperolabs/metis-open_source"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex min-h-11 items-center font-semibold text-accent underline decoration-accent/40 underline-offset-4 hover:text-accent-hover"
+          >
+            Zobacz kod na GitHubie →
+          </a>
           <LegalLinks className="mt-5" />
         </footer>
       </div>

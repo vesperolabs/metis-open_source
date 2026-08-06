@@ -26,7 +26,7 @@ Metis does not replace a lawyer and must not present professional legal advice. 
 ## Data safety
 
 - Never add real messages, court documents, names, case numbers, contact details or credentials to code, tests, documentation, logs, issues or pull requests.
-- Keep `GROQ_API_KEY` and `DEMO_PASSWORD` outside version control.
+- Keep `GROQ_API_KEY` and any analytics key outside version control.
 - AI calls must remain server-side.
 - Analytics must never contain message text, case context, generated output or sent replies.
 - Before committing, inspect the diff for personal data and secrets.

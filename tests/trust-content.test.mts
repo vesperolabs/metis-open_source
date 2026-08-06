@@ -6,28 +6,29 @@ function source(path: string) {
   return readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 }
 
-test("trust and legal routes stay public and linked from the shared footer", () => {
-  const gate = source("app/components/DemoGate.tsx");
+test("trust and legal routes stay linked from the shared footer", () => {
   const chrome = source("app/components/AppChrome.tsx");
 
   for (const route of ["/bezpieczenstwo", "/prywatnosc", "/regulamin"]) {
-    assert.match(gate, new RegExp(`\"${route}\"`));
     assert.match(chrome, new RegExp(`href=\"${route}\"`));
   }
 });
 
-test("public access copy only offers the demo and contact for a code", () => {
+test("complete portfolio demo is public without an access code or sales funnel", () => {
   const publicAccessSurfaces = [
     "app/page.tsx",
-    "app/components/AccessCodeLinks.tsx",
-    "app/components/DemoGate.tsx",
-    "app/components/FullAccessCard.tsx",
+    "app/components/PublicDemoCard.tsx",
     "app/regulamin/page.tsx",
+    "app/prywatnosc/page.tsx",
+    "app/bezpieczenstwo/page.tsx",
   ].map(source).join("\n");
 
-  assert.doesNotMatch(publicAccessSurfaces, /19,99|planowana cena|program wsparcia/i);
-  assert.match(publicAccessSurfaces, /Napisz po kod/);
-  assert.match(publicAccessSurfaces, /jednorazow(?:e|ym) demo/i);
+  assert.doesNotMatch(publicAccessSurfaces, /19,99|planowana cena|program wsparcia|napisz po kod|kod dostępu|pełna wersja beta|WhatsApp/i);
+  assert.match(publicAccessSurfaces, /publiczn(?:e|ym) demo/i);
+  assert.match(publicAccessSurfaces, /bez konta/i);
+  assert.match(publicAccessSurfaces, /bez kodu/i);
+  assert.match(source("app/layout.tsx"), /\{children\}/);
+  assert.doesNotMatch(source("app/layout.tsx"), /DemoGate/);
 });
 
 test("privacy surfaces name the operator, processors and analytics guardrails", () => {
@@ -45,11 +46,12 @@ test("privacy surfaces name the operator, processors and analytics guardrails", 
   assert.match(analytics, /disable_session_recording: true/);
 });
 
-test("terms describe the current code-based beta without public pricing", () => {
+test("terms describe a free public portfolio demo", () => {
   const terms = source("app/regulamin/page.tsx");
 
-  assert.match(terms, /wersja beta/);
-  assert.match(terms, /Jak otrzymać kod/);
+  assert.match(terms, /publicznym demem portfolio/);
+  assert.match(terms, /bezpłatne/i);
+  assert.match(terms, /nie wymaga kodu/i);
   assert.doesNotMatch(terms, /19,99|Cena:/);
-  assert.match(terms, /w ciągu 14 dni/);
+  assert.doesNotMatch(terms, /pełna wersja beta|Jak otrzymać kod|WhatsApp/i);
 });

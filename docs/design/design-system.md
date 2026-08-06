@@ -74,7 +74,7 @@
 - **Approach:** Hybrid — restrained editorial dla landing page, grid-disciplined dla wnętrza aplikacji
 - **Grid:** 12 kolumn, 24px gutter
 - **Max content width:** 672px (lg) dla formularzy i treści; 1024px (xl) dla dashboardu
-- **Landing page:** max-w-lg (512px) wycentrowany — jak teraz w DemoGate.tsx, to jest właściwe
+- **Wąskie formularze wejściowe:** max-w-lg (512px) wycentrowany — sprawdza się na mobile i desktop
 - **Border radius:**
   | Token | Value | Użycie |
   |-------|-------|--------|
@@ -122,4 +122,4 @@ no box-shadow (flat design — cień to dekoracja, nie tu)
 | 2026-06-14 | Fraunces italic dla headline | Literacka, ludzka. Mówi "ktoś to napisał" nie "wygenerował algorytm." Ryzyko: za miękkie — akceptowalne dla tego targetu. |
 | 2026-06-14 | Warm off-white #FAFAF8 zamiast czystej bieli | Efekt papieru — produkt czyta się jak notatnik, nie jak SaaS dashboard. |
 | 2026-06-14 | Plus Jakarta Sans zamiast Inter | Inter = overused. Plus Jakarta Sans = humanistyczna, nie generyczna. |
-| 2026-06-14 | Max-w-lg (512px) centered dla landing | DemoGate.tsx ma to właściwie — skalowanie bloku tekstu + formy działa na mobile i desktop. |
+| 2026-06-14 | Max-w-lg (512px) dla wąskich formularzy | Skalowanie bloku tekstu i formy działa na mobile i desktop. |

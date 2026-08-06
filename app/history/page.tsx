@@ -173,7 +173,7 @@ export default function HistoryPage() {
             <h2 className="font-semibold text-ink">Historia jest jeszcze pusta</h2>
             <p className="mt-3 text-sm leading-relaxed text-ink-body">
               Pierwszy wątek powstanie automatycznie po przeanalizowaniu wiadomości
-              w pełnej wersji Metisa.
+              w publicznym demo Metisa.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <button

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const FLOW = [
-  ["1", "Twoja przeglądarka", "Kontekst sprawy i historia pełnej wersji są zapisywane lokalnie na używanym urządzeniu."],
+  ["1", "Twoja przeglądarka", "Kontekst sprawy i historia publicznego demo są zapisywane lokalnie na używanym urządzeniu."],
   ["2", "Serwer Metis", "Po kliknięciu „Analizuj” wybrana treść jest przesyłana szyfrowanym połączeniem do serwera aplikacji na Vercel."],
   ["3", "Groq", "Serwer przekazuje modelowi AI wiadomość, potrzebny kontekst i maksymalnie trzy ostatnie wymiany z wybranego wątku."],
   ["4", "Wynik", "Analiza wraca do przeglądarki. Metis nie zapisuje treści sprawy we własnej centralnej bazie."],
@@ -19,7 +19,7 @@ export default function SecurityPage() {
     <LegalPageLayout
       eyebrow="Bezpieczeństwo"
       title="Pokazujemy drogę Twoich danych, krok po kroku."
-      intro="Metis pracuje na bardzo wrażliwej komunikacji. Dlatego opisujemy nie tylko zabezpieczenia, ale też obecne ograniczenia wersji beta."
+      intro="Metis pracuje na bardzo wrażliwej komunikacji. Dlatego opisujemy nie tylko zabezpieczenia, ale też ograniczenia publicznego demo."
       updated="6 sierpnia 2026"
     >
       <LegalSection title="Co dzieje się podczas analizy">
@@ -45,15 +45,15 @@ export default function SecurityPage() {
 
       <LegalSection title="Co Metis przechowuje">
         <ul>
-          <li><strong>Pełna wersja:</strong> profil sprawy, historia wątków i zapisane odpowiedzi w pamięci tej przeglądarki.</li>
-          <li><strong>Demo:</strong> tymczasowy wynik w bieżącej sesji oraz lokalna informacja, że bezpłatna próba została wykorzystana.</li>
+          <li><strong>Publiczne demo:</strong> profil sprawy, historia wątków i zapisane odpowiedzi w pamięci tej przeglądarki.</li>
+          <li><strong>Szybka próba:</strong> tymczasowy wynik w bieżącej sesji oraz lokalna informacja, że jedna analiza została wykorzystana.</li>
           <li><strong>Analityka:</strong> wyłącznie nazwane zdarzenia produktowe i ich metadane, bez treści wiadomości, kontekstu sprawy i odpowiedzi AI.</li>
           <li><strong>Hosting:</strong> Vercel może przetwarzać dane techniczne połączenia, takie jak adres IP, czas żądania i diagnostyka serwera.</li>
         </ul>
         <p>
           Metis nie ma obecnie kont użytkowników ani centralnej bazy spraw. Dane lokalne
           nie synchronizują się między urządzeniami i znikną po wyczyszczeniu danych
-          przeglądarki. To świadomy kompromis wersji beta, nie kopia zapasowa.
+          przeglądarki. To świadomy kompromis publicznego demo, nie kopia zapasowa.
         </p>
       </LegalSection>
 
@@ -81,12 +81,11 @@ export default function SecurityPage() {
         </ul>
       </LegalSection>
 
-      <LegalSection title="Znane ograniczenia bety">
+      <LegalSection title="Znane ograniczenia demo">
         <p>
-          Kod dostępu jest prostą bramką do testów, a nie indywidualnym kontem ani
-          pełnym systemem uwierzytelniania. Nie oferujemy synchronizacji, gwarantowanej
-          dostępności ani odzyskiwania historii. Nie deklarujemy certyfikacji, których
-          Metis samodzielnie nie przeszedł.
+          Demo nie ma kont użytkowników ani systemu uwierzytelniania. Nie oferujemy
+          synchronizacji, gwarantowanej dostępności ani odzyskiwania historii. Nie
+          deklarujemy certyfikacji, których Metis samodzielnie nie przeszedł.
         </p>
         <p>
           Znalazłeś problem związany z prywatnością lub bezpieczeństwem? Napisz na{" "}

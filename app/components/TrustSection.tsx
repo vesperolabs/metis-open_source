@@ -4,7 +4,7 @@ const DATA_FLOW = [
   {
     number: "01",
     title: "Twoje urządzenie",
-    description: "Kontekst sprawy i historia pełnej wersji są zapisane lokalnie w tej przeglądarce.",
+    description: "Kontekst sprawy i historia publicznego demo są zapisane lokalnie w tej przeglądarce.",
   },
   {
     number: "02",
@@ -40,7 +40,7 @@ export default function TrustSection() {
           Twoja sprawa nie trafia do naszej bazy.
         </h2>
         <p className="mx-auto mt-5 max-w-2xl leading-[1.7] text-ink-body">
-          Dane pełnej wersji zostają w Twojej przeglądarce. Podczas analizy wybrana
+          Dane publicznego demo zostają w Twojej przeglądarce. Podczas analizy wybrana
           treść przechodzi przez serwer Metis do modelu AI — pokazujemy ten przepływ
           wprost.
         </p>

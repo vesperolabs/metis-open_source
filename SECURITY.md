@@ -19,11 +19,11 @@ Only the current `main` branch is maintained. This portfolio project has no serv
 
 ## Security boundaries
 
-- `GROQ_API_KEY`, `DEMO_PASSWORD` and any personal PostHog key must stay outside Git.
+- `GROQ_API_KEY` and any personal PostHog key must stay outside Git.
 - AI provider calls must remain server-side.
 - Analytics must not contain message text, case context, generated output or sent replies.
 - Browser storage is local persistence, not encrypted backup or cross-device storage.
-- Access codes are a lightweight demo gate, not user authentication.
+- The public demo has no user accounts or authentication; browser storage is accessible to anyone using that browser profile.
 - Metis is not suitable for emergency communication or professional legal advice.
 
 If you accidentally publish a real credential or personal case data, revoke or remove access immediately before attempting a normal code fix.

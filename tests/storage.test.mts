@@ -49,7 +49,7 @@ test("demo analysis lives in session storage and full analysis replaces it", () 
   assert.equal(local.data.size, 0);
   assert.equal(loadStoredAnalysis(session, local)?.source, "demo");
 
-  storeAppAnalysis({ result, message: "Pełna wersja" }, local, session);
+  storeAppAnalysis({ result, message: "Publiczne demo" }, local, session);
   assert.equal(session.data.has(resultStorageKeys.transient), false);
   assert.equal(loadStoredAnalysis(session, local)?.source, "app");
 });

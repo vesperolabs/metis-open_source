@@ -4,7 +4,7 @@ import { LegalPageLayout, LegalSection } from "@/app/components/LegalPageLayout"
 
 export const metadata: Metadata = {
   title: "Regulamin | Metis",
-  description: "Zasady korzystania z wersji beta Metis.",
+  description: "Zasady korzystania z publicznego demo Metis.",
 };
 
 export default function TermsPage() {
@@ -12,13 +12,13 @@ export default function TermsPage() {
     <LegalPageLayout
       eyebrow="Regulamin"
       title="Zasady korzystania z Metis"
-      intro="Ten regulamin opisuje bezpłatne demo i pełną wersję beta udostępnianą kodem. Metis wspiera organizację informacji i redagowanie komunikacji — nie zastępuje prawnika."
-      updated="5 sierpnia 2026"
+      intro="Ten regulamin opisuje bezpłatne, publiczne demo portfolio Metis. Metis wspiera organizację informacji i redagowanie komunikacji — nie zastępuje prawnika."
+      updated="6 sierpnia 2026"
       notice={
         <p>
-          <strong>Metis działa obecnie jako wersja beta.</strong> Jedną wiadomość możesz
-          sprawdzić w publicznym demo. Dostęp do pełnej wersji jest przyznawany
-          indywidualnie kodem po kontakcie z operatorem.
+          <strong>Metis jest publicznym demem portfolio, a nie aktywną usługą
+          komercyjną.</strong> Wszystkie funkcje demonstracyjne są dostępne bez konta,
+          kodu i opłat.
         </p>
       }
     >
@@ -32,12 +32,12 @@ export default function TermsPage() {
       <LegalSection title="2. Co oferuje Metis">
         <ul>
           <li><strong>Publiczny przykład:</strong> gotowy, syntetyczny wynik pokazujący sposób działania produktu.</li>
-          <li><strong>Jednorazowe demo:</strong> jedna analiza własnej wiadomości bez konta; kontekst próby i historia nie są zapamiętywane jako profil sprawy.</li>
-          <li><strong>Pełna wersja beta:</strong> analiza wiadomości, lokalny profil sprawy, wątki, historia i ocena własnej odpowiedzi, dostępne po wpisaniu kodu.</li>
+          <li><strong>Szybka próba:</strong> jedna analiza własnej wiadomości bez zapisywania kontekstu jako profilu sprawy.</li>
+          <li><strong>Publiczne demo:</strong> analiza wiadomości, lokalny profil sprawy, wątki, historia i ocena własnej odpowiedzi.</li>
         </ul>
         <p>
-          Kod może być obecnie przyznawany indywidualnie do testów. Nie tworzy konta,
-          nie gwarantuje synchronizacji między urządzeniami i nie jest dowodem zakupu.
+          Demo nie tworzy konta i nie synchronizuje danych między urządzeniami. Nie
+          jest ofertą odpłatnej usługi ani obietnicą dalszego rozwijania produktu.
         </p>
       </LegalSection>
 
@@ -55,7 +55,7 @@ export default function TermsPage() {
         <ul>
           <li>wprowadzać treści, do których nie masz prawa dostępu lub użycia;</li>
           <li>używać Metis do nękania, gróźb, manipulacji, omijania prawa albo wyrządzenia szkody;</li>
-          <li>próbować omijać limitów, bramki dostępu lub zabezpieczeń technicznych;</li>
+          <li>próbować omijać ograniczenia bezpieczeństwa lub zakłócać działania aplikacji;</li>
           <li>wprowadzać danych w szerszym zakresie, niż jest potrzebny do analizy komunikacji.</li>
         </ul>
         <p>
@@ -77,30 +77,24 @@ export default function TermsPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="6. Dostęp do bety">
+      <LegalSection title="6. Dostępność demo">
         <p>
-          Dostęp może być czasowo niedostępny z powodu prac, awarii lub zmian produktu.
-          Operator może zablokować kod w razie nadużycia, zagrożenia bezpieczeństwa albo
-          naruszenia regulaminu. W miarę możliwości użytkownik otrzyma krótkie wyjaśnienie.
+          Demo może być czasowo niedostępne z powodu prac, awarii, limitów dostawcy AI
+          lub zmian projektu. Operator może ograniczyć dostęp w razie nadużycia,
+          zagrożenia bezpieczeństwa albo naruszenia regulaminu.
         </p>
         <p>
-          Beta nie ma gwarantowanego poziomu dostępności, pomocy technicznej ani kopii
-          zapasowej danych lokalnych. Zakończenie testów zostanie zakomunikowane z
-          rozsądnym wyprzedzeniem, jeśli będzie to możliwe.
+          Demo nie ma gwarantowanego poziomu dostępności, pomocy technicznej ani kopii
+          zapasowej danych lokalnych. Może zostać zmienione lub wyłączone bez wcześniejszego
+          powiadomienia.
         </p>
       </LegalSection>
 
-      <LegalSection title="7. Jak otrzymać kod">
+      <LegalSection title="7. Opłaty i dostęp">
         <p>
-          Po wykorzystaniu demo możesz poprosić o kod do pełnej wersji beta przez
-          e-mail lub WhatsApp. Nie wysyłaj w tej wiadomości treści swojej sprawy.
+          Korzystanie z publicznego demo jest bezpłatne i nie wymaga kodu. Metis nie
+          prowadzi sprzedaży, subskrypcji ani programu płatnego dostępu.
         </p>
-        <ul>
-          <li>Kody są obecnie przyznawane ręcznie osobom testującym produkt.</li>
-          <li>Wysłanie prośby nie gwarantuje otrzymania kodu ani terminu odpowiedzi.</li>
-          <li>Kod służy jednej osobie i nie powinien być publicznie udostępniany.</li>
-          <li>Operator może zmienić lub wyłączyć kod w razie nadużycia albo zagrożenia bezpieczeństwa.</li>
-        </ul>
       </LegalSection>
 
       <LegalSection title="8. Problemy i zgłoszenia">
@@ -108,7 +102,8 @@ export default function TermsPage() {
           Zgłoszenie wyślij na{" "}
           <a href="mailto:kacper.staroszczyk@gmail.com">kacper.staroszczyk@gmail.com</a>,
           podając opis problemu i datę jego wystąpienia. Nie dołączaj treści sprawy,
-          jeśli nie jest konieczna. Odpowiedź otrzymasz w ciągu 14 dni kalendarzowych.
+          jeśli nie jest konieczna. Projekt nie zapewnia gwarantowanego czasu odpowiedzi
+          ani indywidualnej pomocy technicznej.
         </p>
       </LegalSection>
 
@@ -119,9 +114,8 @@ export default function TermsPage() {
           funkcji. Szczegóły opisuje <Link href="/prywatnosc">polityka prywatności</Link>.
         </p>
         <p>
-          Regulamin może zostać zmieniony wraz z rozwojem bety albo wymogami prawa.
-          Aktualna wersja i data zmiany są publikowane na tej stronie. O istotnych
-          zmianach dotyczących aktualnych testerów operator poinformuje w rozsądny sposób.
+          Regulamin może zostać zmieniony wraz z rozwojem publicznego demo albo wymogami
+          prawa. Aktualna wersja i data zmiany są publikowane na tej stronie.
         </p>
       </LegalSection>
     </LegalPageLayout>

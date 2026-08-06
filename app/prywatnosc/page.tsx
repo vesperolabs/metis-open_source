@@ -4,7 +4,7 @@ import { LegalPageLayout, LegalSection } from "@/app/components/LegalPageLayout"
 
 export const metadata: Metadata = {
   title: "Prywatność | Metis",
-  description: "Polityka prywatności wersji beta Metis.",
+  description: "Polityka prywatności publicznego demo Metis.",
 };
 
 export default function PrivacyPage() {
@@ -12,13 +12,13 @@ export default function PrivacyPage() {
     <LegalPageLayout
       eyebrow="Prywatność"
       title="Polityka prywatności Metis"
-      intro="Ta polityka opisuje wersję beta Metis: jakie dane przetwarzamy, po co, gdzie mogą trafić i jakie masz możliwości kontroli."
+      intro="Ta polityka opisuje publiczne demo portfolio Metis: jakie dane przetwarzamy, po co, gdzie mogą trafić i jakie masz możliwości kontroli."
       updated="6 sierpnia 2026"
       notice={
         <p>
-          Metis działa obecnie jako wersja beta z pełnym dostępem przyznawanym kodem.
-          Jeśli sposób dostępu lub zakres przetwarzania danych się zmieni, ta polityka
-          zostanie zaktualizowana przed zmianą.
+          Metis jest bezpłatnym, publicznym demem portfolio. Nie wymaga konta ani
+          kodu dostępu i nie jest aktywną usługą komercyjną. Jeśli zakres
+          przetwarzania danych się zmieni, ta polityka zostanie zaktualizowana.
         </p>
       }
     >
@@ -29,9 +29,9 @@ export default function PrivacyPage() {
           <a href="mailto:kacper.staroszczyk@gmail.com">kacper.staroszczyk@gmail.com</a>.
         </p>
         <p>
-          Metis jest obecnie nieodpłatną wersją beta bez aktywnego sklepu i bez kont
-          użytkowników. Nie przekazuj danych swojej sprawy w wiadomości kontaktowej,
-          jeśli nie jest to konieczne do rozwiązania problemu.
+          Metis jest bezpłatnym demem bez sklepu i kont użytkowników. Nie przekazuj
+          danych swojej sprawy w wiadomości kontaktowej, jeśli nie jest to konieczne
+          do rozwiązania problemu.
         </p>
       </LegalSection>
 
@@ -41,14 +41,14 @@ export default function PrivacyPage() {
           <li><strong>Dane zapisane lokalnie:</strong> profil sprawy, historia wątków, wyniki i odpowiedzi oznaczone jako wysłane.</li>
           <li><strong>Dane techniczne:</strong> adres IP, rodzaj urządzenia i przeglądarki, czas żądania, błędy oraz informacje potrzebne do bezpieczeństwa hostingu.</li>
           <li><strong>Dane analityczne:</strong> nazwane zdarzenia produktowe, np. rozpoczęcie demo lub ukończenie analizy, bez treści sprawy.</li>
-          <li><strong>Dane kontaktowe:</strong> adres e-mail lub numer WhatsApp i treść wiadomości, gdy samodzielnie się z nami kontaktujesz.</li>
+          <li><strong>Dane kontaktowe:</strong> adres e-mail i treść wiadomości, gdy samodzielnie zgłaszasz problem.</li>
         </ul>
       </LegalSection>
 
       <LegalSection title="3. Po co i na jakiej podstawie">
         <p>W zależności od sytuacji przetwarzamy dane, aby:</p>
         <ul>
-          <li>wykonać analizę, o którą prosisz, i udostępnić funkcje bety — w celu wykonania usługi lub działań przed jej świadczeniem;</li>
+          <li>wykonać analizę, o którą prosisz, i udostępnić funkcje publicznego demo — w celu realizacji Twojego żądania;</li>
           <li>zapewnić bezpieczeństwo, przeciwdziałać nadużyciom i diagnozować awarie — w uzasadnionym interesie operatora i użytkowników;</li>
           <li>zrozumieć użycie kluczowych funkcji na podstawie ograniczonej analityki — w uzasadnionym interesie rozwijania produktu, z poszanowaniem Twojego prawa do sprzeciwu;</li>
           <li>odpowiedzieć na kontakt i rozpatrzyć zgłoszenie — w celu podjęcia działań na Twoje żądanie albo wykonania obowiązku prawnego.</li>
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
           <li><strong>Groq:</strong> dostawca infrastruktury modelu AI analizującego treść; dane zwykłych zapytań nie są według dostawcy domyślnie przechowywane, z wyjątkami dotyczącymi niezawodności i przeciwdziałania nadużyciom.</li>
           <li><strong>Vercel:</strong> hosting strony, serwera API i techniczna obsługa żądań.</li>
           <li><strong>PostHog EU:</strong> ograniczona analityka nazwanych zdarzeń bez treści wiadomości i bez nagrywania sesji.</li>
-          <li><strong>Dostawca poczty lub WhatsApp:</strong> tylko jeśli wybierzesz dany kanał kontaktu.</li>
+          <li><strong>Dostawca poczty:</strong> tylko jeśli samodzielnie wyślesz wiadomość dotyczącą prywatności, bezpieczeństwa lub błędu.</li>
         </ul>
         <p>
           Niektórzy dostawcy działają poza Polską lub Europejskim Obszarem Gospodarczym.
@@ -117,9 +117,9 @@ export default function PrivacyPage() {
 
       <LegalSection title="8. Zmiany polityki">
         <p>
-          Polityka może zmieniać się wraz z rozwojem bety, w szczególności przed
-          uruchomieniem kont, synchronizacji albo innego sposobu dostępu. Nowa wersja będzie
-          opublikowana na tej stronie z datą aktualizacji. Zasady korzystania z usługi
+          Polityka może zmieniać się wraz z rozwojem publicznego demo, w szczególności
+          przed uruchomieniem kont, synchronizacji albo innego sposobu dostępu. Nowa
+          wersja będzie opublikowana na tej stronie z datą aktualizacji. Zasady korzystania
           znajdziesz w <Link href="/regulamin">regulaminie</Link>, a praktyczny opis
           przepływu danych na stronie <Link href="/bezpieczenstwo">Bezpieczeństwo</Link>.
         </p>

@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { track } from "@/lib/analytics";
 import { AppHeader, LegalFooter } from "@/app/components/AppChrome";
-import BetaBanner from "@/app/components/BetaBanner";
-import FullAccessCard from "@/app/components/FullAccessCard";
+import PublicDemoCard from "@/app/components/PublicDemoCard";
 import {
   SAMPLE_CONTEXT,
   SAMPLE_MESSAGE,
@@ -13,8 +12,7 @@ import {
 } from "@/lib/sample";
 import { storeTransientAnalysis } from "@/lib/result-storage";
 
-// New key gives visitors one clean attempt after the demo/full-version split.
-// The previous key was also set by the earlier beta flow and caused false paywalls.
+// The quick try remains intentionally limited; the complete portfolio demo is public.
 const FREE_USED_KEY = "metis_demo_free_used_v2";
 
 const LOADING_STEPS = [
@@ -32,7 +30,7 @@ export default function DemoPage() {
   const [loadingStep, setLoadingStep] = useState(0);
   const [error, setError] = useState("");
   const [freeUsed, setFreeUsed] = useState(false);
-  const [showCodeContact, setShowCodeContact] = useState(false);
+  const [showFullDemo, setShowFullDemo] = useState(false);
   const [sampleSeen, setSampleSeen] = useState(false);
   const [loopHint, setLoopHint] = useState(false);
   const [ctxHintShown, setCtxHintShown] = useState(false);
@@ -64,7 +62,7 @@ export default function DemoPage() {
 
   async function handleAnalyze() {
     setError("");
-    setShowCodeContact(false);
+    setShowFullDemo(false);
     setLoopHint(false);
 
     // Unchanged sample → instant pre-baked analysis, no API call.
@@ -88,9 +86,9 @@ export default function DemoPage() {
       return;
     }
 
-    // Edited → one real analysis without access code.
+    // Edited → one real analysis in the quick, stateless try.
     if (freeUsed) {
-      setShowCodeContact(true);
+      setShowFullDemo(true);
       return;
     }
 
@@ -143,19 +141,16 @@ export default function DemoPage() {
         <AppHeader />
 
         <h1 className="mt-10 font-display text-4xl font-bold italic leading-tight text-ink sm:text-5xl">
-          Jednorazowe demo Metisa
+          Szybkie demo Metisa
         </h1>
-        <div className="mt-5 max-w-xl">
-          <BetaBanner />
-        </div>
         <p className="mt-6 leading-relaxed text-ink-body">
           Zobacz gotowy przykład albo podmień treść i sprawdź jedną własną
           wiadomość.
         </p>
         <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-          Kontekst tej próby jest tymczasowy i nie zostanie zapamiętany. Pełna
-          wersja zachowuje kontekst na Twoim urządzeniu i używa go przy kolejnych
-          analizach.
+          Kontekst tej próby jest tymczasowy i nie zostanie zapamiętany. Publiczne
+          demo aplikacji zachowuje kontekst na Twoim urządzeniu i używa go przy
+          kolejnych analizach.
         </p>
 
         <div className="mt-8 space-y-5 rounded-[14px] border border-border bg-paper p-5 sm:p-7">
@@ -207,8 +202,8 @@ export default function DemoPage() {
             </div>
           )}
 
-          {showCodeContact && (
-            <FullAccessCard />
+          {showFullDemo && (
+            <PublicDemoCard />
           )}
 
           {error && (

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import DemoGate from "./components/DemoGate";
 import Analytics from "./components/Analytics";
 
 const fraunces = Fraunces({
@@ -28,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pl" className={`${fraunces.variable} ${plusJakartaSans.variable}`}>
       <body className="min-h-screen bg-paper font-sans text-ink antialiased">
         <Analytics />
-        <DemoGate>{children}</DemoGate>
+        {children}
       </body>
     </html>
   );

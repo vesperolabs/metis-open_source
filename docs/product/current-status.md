@@ -11,8 +11,8 @@ The reference interface is in Polish and targets communication in Polish family 
 ## Implemented
 
 - Public landing page and a static example analysis that does not call an AI API.
-- One real demo analysis with temporary browser-session context.
-- Access-code flow for the complete demonstration experience.
+- One real quick-try analysis with temporary browser-session context.
+- Public access to the complete demonstration experience without an account or code.
 - Versioned case profile stored in `localStorage`, including names, context and writing-style samples.
 - Separate local conversation threads containing incoming messages, analyses, proposed replies and replies explicitly marked as sent.
 - Up to three recent confirmed exchanges used as context for the next analysis in a thread.
@@ -38,7 +38,6 @@ The reference interface is in Polish and targets communication in Polish family 
 
 ## Known limitations
 
-- The access code is a demonstration gate, not a full authentication system.
 - The one-analysis demo limit is enforced in the browser and is not abuse-resistant.
 - Conversation history has no export, import or cross-device synchronization.
 - `/api/evaluate` requires Groq and has no manual fallback.
