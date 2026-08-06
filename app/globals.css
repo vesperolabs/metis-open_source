@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-jakarta), sans-serif;
+  --font-display: var(--font-fraunces), serif;
+
+  --color-paper: #FAFAF8;
+  --color-cream: #F0EDE6;
+  --color-border: #E0DBD2;
+  --color-ink: #1C1A17;
+  --color-ink-body: #3D3830;
+  --color-ink-muted: #6B6155;
+  --color-accent: #2C5F2E;
+  --color-accent-hover: #245026;
+  --color-accent-light: #EBF3EB;
+  --color-error: #C1440E;
+  --color-error-light: #FEF2EE;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    background: var(--color-accent-light);
+  }
+
+  .legal-copy a {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+    text-underline-offset: 4px;
+  }
+
+  .legal-copy a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .legal-copy ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+
+  .legal-copy li + li {
+    margin-top: 0.5rem;
+  }
+
+  .legal-copy code {
+    border-radius: 0.375rem;
+    background: var(--color-cream);
+    padding: 0.125rem 0.375rem;
+    font-size: 0.875em;
+  }
+}

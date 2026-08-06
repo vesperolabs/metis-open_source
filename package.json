@@ -1,0 +1,35 @@
+{
+  "name": "metis",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "homepage": "https://metis-pearl.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vesperolabs/metis-open_source.git"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "eval:analysis": "node --experimental-strip-types scripts/run-analysis-evals.mts",
+    "test": "node --experimental-strip-types --test tests/*.test.mts",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "16.3.0",
+    "posthog-js": "^1.224.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
