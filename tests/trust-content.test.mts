@@ -55,3 +55,12 @@ test("terms describe a free public portfolio demo", () => {
   assert.doesNotMatch(terms, /19,99|Cena:/);
   assert.doesNotMatch(terms, /pełna wersja beta|Jak otrzymać kod|WhatsApp/i);
 });
+
+test("voice transcription visibly confirms when recording is active", () => {
+  const voiceInput = source("app/components/VoiceTranscribeButton.tsx");
+
+  assert.match(voiceInput, /Nagrywanie — możesz mówić/);
+  assert.match(voiceInput, /Zatrzymaj i przepisz/);
+  assert.match(voiceInput, /animate-pulse/);
+  assert.match(voiceInput, /aria-live="polite"/);
+});

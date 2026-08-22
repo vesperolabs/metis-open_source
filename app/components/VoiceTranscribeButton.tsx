@@ -15,6 +15,12 @@ function usageKey() {
   return `metis_voice_transcriptions_${new Date().toISOString().slice(0, 7)}`;
 }
 
+function formatRecordingTime(seconds: number) {
+  const minutes = Math.floor(seconds / 60);
+  const remainder = String(seconds % 60).padStart(2, "0");
+  return `${minutes}:${remainder}`;
+}
+
 function usedTranscriptions() {
   try {
     return Number.parseInt(localStorage.getItem(usageKey()) || "0", 10) || 0;
@@ -53,11 +59,13 @@ async function audioDurationSeconds(file: File) {
 
 export default function VoiceTranscribeButton({ field, onTranscript }: VoiceTranscribeButtonProps) {
   const [recording, setRecording] = useState(false);
+  const [recordingSeconds, setRecordingSeconds] = useState(0);
   const [transcribing, setTranscribing] = useState(false);
   const [notice, setNotice] = useState("");
   const recorderRef = useRef<MediaRecorder | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const timerRef = useRef<number | null>(null);
+  const recordingIntervalRef = useRef<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => () => stopStream(), []);
@@ -66,6 +74,10 @@ export default function VoiceTranscribeButton({ field, onTranscript }: VoiceTran
     if (timerRef.current !== null) {
       window.clearTimeout(timerRef.current);
       timerRef.current = null;
+    }
+    if (recordingIntervalRef.current !== null) {
+      window.clearInterval(recordingIntervalRef.current);
+      recordingIntervalRef.current = null;
     }
     streamRef.current?.getTracks().forEach((track) => track.stop());
     streamRef.current = null;
@@ -134,6 +146,7 @@ export default function VoiceTranscribeButton({ field, onTranscript }: VoiceTran
       };
       recorder.onstop = () => {
         setRecording(false);
+        setRecordingSeconds(0);
         stopStream();
         recorderRef.current = null;
         const recordingFile = new File([new Blob(chunks, { type: recorder.mimeType || "audio/webm" })], "nagranie.webm", {
@@ -143,8 +156,13 @@ export default function VoiceTranscribeButton({ field, onTranscript }: VoiceTran
       };
       recorder.start();
       setRecording(true);
+      setRecordingSeconds(0);
       track("voice_recording_started", { field });
       timerRef.current = window.setTimeout(() => recorder.stop(), MAX_RECORDING_SECONDS * 1000);
+      recordingIntervalRef.current = window.setInterval(
+        () => setRecordingSeconds((seconds) => Math.min(seconds + 1, MAX_RECORDING_SECONDS)),
+        1_000
+      );
     } catch {
       stopStream();
       setNotice("Nie udało się uruchomić mikrofonu. Sprawdź zgodę w przeglądarce albo wybierz plik audio.");
@@ -163,9 +181,12 @@ export default function VoiceTranscribeButton({ field, onTranscript }: VoiceTran
           type="button"
           onClick={startRecording}
           disabled={transcribing}
-          className="inline-flex min-h-11 items-center text-sm font-semibold text-accent underline decoration-accent/40 underline-offset-4 hover:text-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+          className={`inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-current/30 underline-offset-4 disabled:cursor-not-allowed disabled:opacity-50 ${
+            recording ? "text-error hover:text-error" : "text-accent hover:text-accent-hover"
+          }`}
         >
-          {recording ? "Zatrzymaj nagranie" : transcribing ? "Przepisuję nagranie…" : "Nagraj głosowo"}
+          {recording && <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-error" aria-hidden="true" />}
+          {recording ? "Zatrzymaj i przepisz" : transcribing ? "Przepisuję nagranie…" : "Nagraj głosowo"}
         </button>
         <button
           type="button"
@@ -187,6 +208,19 @@ export default function VoiceTranscribeButton({ field, onTranscript }: VoiceTran
           }}
         />
       </div>
+      {recording && (
+        <div
+          className="mt-3 flex items-center justify-between rounded-[6px] border border-error/25 bg-error-light px-3 py-2 text-sm text-error"
+          role="status"
+          aria-live="polite"
+        >
+          <span className="flex items-center gap-2 font-semibold">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-error" aria-hidden="true" />
+            Nagrywanie — możesz mówić
+          </span>
+          <span className="tabular-nums">{formatRecordingTime(recordingSeconds)} / 3:00</span>
+        </div>
+      )}
       <p className="mt-2 text-xs leading-relaxed text-ink-muted">
         Maks. 3 min. Audio trafia do ElevenLabs wyłącznie do transkrypcji; Metis nie zapisuje nagrania. Tekst zostanie dodany do pola i możesz go poprawić. Limit: 3 nagrania na tym urządzeniu w miesiącu.
       </p>
