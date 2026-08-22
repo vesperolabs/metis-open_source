@@ -6,6 +6,7 @@ import { track } from "@/lib/analytics";
 import { clearCaseData, loadCaseProfile, saveCaseProfile } from "@/lib/case-profile";
 import { loadSampleAnalysis } from "@/lib/sample";
 import { AppHeader, LegalFooter } from "@/app/components/AppChrome";
+import VoiceTranscribeButton from "@/app/components/VoiceTranscribeButton";
 
 export default function SetupPage() {
   const router = useRouter();
@@ -179,6 +180,10 @@ export default function SetupPage() {
 
 (Imiona możesz zastąpić dowolnymi. Więcej szczegółów = lepsza analiza, ale możesz je dodać później.)`}
               className="w-full resize-none rounded-[10px] border border-border bg-paper px-4 py-3 text-sm leading-relaxed text-ink placeholder-ink-muted outline-none transition-shadow focus:border-accent focus:ring-2 focus:ring-accent/15"
+            />
+            <VoiceTranscribeButton
+              field="case_context"
+              onTranscript={(transcript) => setContext((current) => current ? `${current}\n\n${transcript}` : transcript)}
             />
             <p className="mt-2 text-xs leading-relaxed text-ink-muted">
               Kontekst zostaje w Twojej przeglądarce i Metis nie zapisuje go w

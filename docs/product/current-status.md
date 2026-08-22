@@ -1,6 +1,6 @@
 # Metis current status
 
-Last verified: 2026-08-06
+Last verified: 2026-08-22
 
 ## Status
 
@@ -24,6 +24,7 @@ The reference interface is in Polish and targets communication in Polish family 
 - High-risk boundary that can withhold a draft and prepare questions for a lawyer.
 - Gender-symmetric and evidence-based prompt rules: calm can be firm, allegations are not assumed true and hidden intentions are not presented as facts.
 - Optional content-free PostHog analytics.
+- Optional voice-to-text input for case context, received messages and the user's own draft. Every transcript is shown in an editable field before use.
 - Public security, privacy and terms pages in the application.
 - Synthetic tests for response contracts, safety behavior, local persistence and API failure handling.
 
@@ -33,12 +34,15 @@ The reference interface is in Polish and targets communication in Polish family 
 - Case profiles and conversation history stay in the browser until the user removes them or browser storage is cleared.
 - AI requests send the selected message and required context to the Next.js server and Groq.
 - The Groq API key stays server-side.
+- Voice recordings are sent to ElevenLabs only after an explicit action. Metis does not store raw audio and the ElevenLabs API key stays server-side.
 - Analytics must never contain messages, case context, generated responses or sent replies.
 - Local storage does not synchronize across devices and is not a backup.
 
 ## Known limitations
 
 - The one-analysis demo limit is enforced in the browser and is not abuse-resistant.
+- Voice-transcription limits are browser-local (three recordings per calendar month and three minutes per recording), so they are not abuse-resistant.
+- ElevenLabs' default data-retention terms apply to audio submitted for transcription; the public demo cannot promise zero retention from that provider.
 - Conversation history has no export, import or cross-device synchronization.
 - `/api/evaluate` requires Groq and has no manual fallback.
 - Model output quality can vary even with a strict schema and synthetic regression tests.

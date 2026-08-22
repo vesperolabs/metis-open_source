@@ -13,7 +13,7 @@ export default function TermsPage() {
       eyebrow="Regulamin"
       title="Zasady korzystania z Metis"
       intro="Ten regulamin opisuje bezpłatne, publiczne demo portfolio Metis. Metis wspiera organizację informacji i redagowanie komunikacji — nie zastępuje prawnika."
-      updated="6 sierpnia 2026"
+      updated="22 sierpnia 2026"
       notice={
         <p>
           <strong>Metis jest publicznym demem portfolio, a nie aktywną usługą
@@ -33,7 +33,7 @@ export default function TermsPage() {
         <ul>
           <li><strong>Publiczny przykład:</strong> gotowy, syntetyczny wynik pokazujący sposób działania produktu.</li>
           <li><strong>Szybka próba:</strong> jedna analiza własnej wiadomości bez zapisywania kontekstu jako profilu sprawy.</li>
-          <li><strong>Publiczne demo:</strong> analiza wiadomości, lokalny profil sprawy, wątki, historia i ocena własnej odpowiedzi.</li>
+          <li><strong>Publiczne demo:</strong> analiza wiadomości, lokalny profil sprawy, wątki, historia, ocena własnej odpowiedzi i opcjonalna transkrypcja głosowa.</li>
         </ul>
         <p>
           Demo nie tworzy konta i nie synchronizuje danych między urządzeniami. Nie
@@ -47,6 +47,11 @@ export default function TermsPage() {
           lokalną, dostępu do internetu oraz urządzenia, nad którym masz kontrolę.
           Wyczyszczenie danych witryny, zmiana przeglądarki lub urządzenia może usunąć
           profil i historię bez możliwości odzyskania.
+        </p>
+        <p>
+          Nagrywanie głosowe wymaga zgody na mikrofon albo pliku audio. Funkcja ma
+          limit trzech nagrań na urządzeniu w miesiącu i trzech minut na nagranie;
+          limit działa w przeglądarce i może zniknąć po wyczyszczeniu danych witryny.
         </p>
       </LegalSection>
 

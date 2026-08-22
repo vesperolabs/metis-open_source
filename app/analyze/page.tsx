@@ -22,6 +22,7 @@ import {
 import { isSampleMessageHistoryThreadId } from "@/lib/sample-message-history";
 import { SAMPLE_RESULT, loadSampleAnalysis } from "@/lib/sample";
 import { AppHeader, LegalFooter } from "@/app/components/AppChrome";
+import VoiceTranscribeButton from "@/app/components/VoiceTranscribeButton";
 
 const CHANNELS = ["SMS", "Email", "WhatsApp", "Messenger", "Telefon — notatka", "Inne"];
 
@@ -449,6 +450,10 @@ export default function AnalyzePage() {
               rows={8}
               placeholder="Wklej tutaj wiadomość od drugiej strony..."
               className="w-full resize-none rounded-[10px] border border-border bg-paper px-4 py-3 text-sm leading-relaxed text-ink placeholder-ink-muted outline-none transition-shadow focus:border-accent focus:ring-2 focus:ring-accent/15"
+            />
+            <VoiceTranscribeButton
+              field="incoming_message"
+              onTranscript={(transcript) => setMessage((current) => current ? `${current}\n\n${transcript}` : transcript)}
             />
             <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
               <p className="text-xs leading-relaxed text-ink-muted">

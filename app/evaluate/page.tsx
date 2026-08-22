@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AppHeader, LegalFooter } from "@/app/components/AppChrome";
+import VoiceTranscribeButton from "@/app/components/VoiceTranscribeButton";
 import { loadCaseProfile } from "@/lib/case-profile";
 import { loadStoredAnalysis } from "@/lib/result-storage";
 import { validateEvaluationResult, type EvaluationResult } from "@/lib/evaluation";
@@ -101,6 +102,10 @@ export default function EvaluatePage() {
               rows={6}
               placeholder="Wklej tutaj swoją wersję odpowiedzi..."
               className="w-full resize-none rounded-[10px] border border-border bg-paper px-4 py-3 text-sm leading-relaxed text-ink placeholder-ink-muted outline-none transition-shadow focus:border-accent focus:ring-2 focus:ring-accent/15"
+            />
+            <VoiceTranscribeButton
+              field="own_draft"
+              onTranscript={(transcript) => setDraft((current) => current ? `${current}\n\n${transcript}` : transcript)}
             />
           </div>
 

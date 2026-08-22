@@ -11,7 +11,8 @@ const FLOW = [
   ["1", "Twoja przeglądarka", "Kontekst sprawy i historia publicznego demo są zapisywane lokalnie na używanym urządzeniu."],
   ["2", "Serwer Metis", "Po kliknięciu „Analizuj” wybrana treść jest przesyłana szyfrowanym połączeniem do serwera aplikacji na Vercel."],
   ["3", "Groq", "Serwer przekazuje modelowi AI wiadomość, potrzebny kontekst i maksymalnie trzy ostatnie wymiany z wybranego wątku."],
-  ["4", "Wynik", "Analiza wraca do przeglądarki. Metis nie zapisuje treści sprawy we własnej centralnej bazie."],
+  ["4", "ElevenLabs (opcjonalnie)", "Po użyciu przycisku głosowego serwer przesyła nagranie do transkrypcji. Metis nie zapisuje surowego audio."],
+  ["5", "Wynik", "Analiza albo edytowalna transkrypcja wraca do przeglądarki. Metis nie zapisuje treści sprawy we własnej centralnej bazie."],
 ];
 
 export default function SecurityPage() {
@@ -20,7 +21,7 @@ export default function SecurityPage() {
       eyebrow="Bezpieczeństwo"
       title="Pokazujemy drogę Twoich danych, krok po kroku."
       intro="Metis pracuje na bardzo wrażliwej komunikacji. Dlatego opisujemy nie tylko zabezpieczenia, ale też ograniczenia publicznego demo."
-      updated="6 sierpnia 2026"
+      updated="22 sierpnia 2026"
     >
       <LegalSection title="Co dzieje się podczas analizy">
         <ol className="grid gap-3 sm:grid-cols-2">
@@ -41,6 +42,14 @@ export default function SecurityPage() {
             dokumentacji danych Groq
           </a>.
         </p>
+        <p>
+          Transkrypcja głosowa jest opcjonalna. Zanim nagranie trafi do ElevenLabs,
+          użytkownik sam wybiera nagranie lub plik audio. Metis nie przechowuje audio,
+          ale standardowe zasady retencji ElevenLabs dotyczą przesłanego pliku. Zobacz{" "}
+          <a href="https://elevenlabs.io/privacy" target="_blank" rel="noreferrer">
+            politykę prywatności ElevenLabs
+          </a>.
+        </p>
       </LegalSection>
 
       <LegalSection title="Co Metis przechowuje">
@@ -49,6 +58,7 @@ export default function SecurityPage() {
           <li><strong>Szybka próba:</strong> tymczasowy wynik w bieżącej sesji oraz lokalna informacja, że jedna analiza została wykorzystana.</li>
           <li><strong>Analityka:</strong> wyłącznie nazwane zdarzenia produktowe i ich metadane, bez treści wiadomości, kontekstu sprawy i odpowiedzi AI.</li>
           <li><strong>Hosting:</strong> Vercel może przetwarzać dane techniczne połączenia, takie jak adres IP, czas żądania i diagnostyka serwera.</li>
+          <li><strong>Głos:</strong> Metis nie zapisuje nagrań audio. Tekst z transkrypcji trafia do pola formularza dopiero po powrocie do przeglądarki i możesz go poprawić przed użyciem.</li>
         </ul>
         <p>
           Metis nie ma obecnie kont użytkowników ani centralnej bazy spraw. Dane lokalne

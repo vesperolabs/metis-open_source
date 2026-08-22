@@ -11,6 +11,7 @@ import {
   loadSampleAnalysis,
 } from "@/lib/sample";
 import { storeTransientAnalysis } from "@/lib/result-storage";
+import VoiceTranscribeButton from "@/app/components/VoiceTranscribeButton";
 
 // The quick try remains intentionally limited; the complete portfolio demo is public.
 const FREE_USED_KEY = "metis_demo_free_used_v2";
@@ -164,6 +165,10 @@ export default function DemoPage() {
               rows={4}
               className="w-full resize-none rounded-[10px] border border-border bg-paper px-4 py-3 text-sm leading-relaxed text-ink outline-none transition-shadow focus:border-accent focus:ring-2 focus:ring-accent/15"
             />
+            <VoiceTranscribeButton
+              field="case_context"
+              onTranscript={(transcript) => setContext((current) => current ? `${current}\n\n${transcript}` : transcript)}
+            />
             <p className="mt-2 text-xs leading-relaxed text-ink-muted">
               Tylko na potrzeby tej jednej próby — demo nie zapisze tego kontekstu.
             </p>
@@ -179,6 +184,10 @@ export default function DemoPage() {
               onChange={(e) => setMessage(e.target.value)}
               rows={5}
               className="w-full resize-none rounded-[10px] border border-border bg-paper px-4 py-3 text-sm leading-relaxed text-ink outline-none transition-shadow focus:border-accent focus:ring-2 focus:ring-accent/15"
+            />
+            <VoiceTranscribeButton
+              field="incoming_message"
+              onTranscript={(transcript) => setMessage((current) => current ? `${current}\n\n${transcript}` : transcript)}
             />
             <p className="mt-2 text-xs leading-relaxed text-ink-muted">
               Podczas analizy treść trafia do modelu AI. Metis nie zapisuje jej w bazie.

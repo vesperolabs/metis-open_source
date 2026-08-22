@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       eyebrow="Prywatność"
       title="Polityka prywatności Metis"
       intro="Ta polityka opisuje publiczne demo portfolio Metis: jakie dane przetwarzamy, po co, gdzie mogą trafić i jakie masz możliwości kontroli."
-      updated="6 sierpnia 2026"
+      updated="22 sierpnia 2026"
       notice={
         <p>
           Metis jest bezpłatnym, publicznym demem portfolio. Nie wymaga konta ani
@@ -38,6 +38,7 @@ export default function PrivacyPage() {
       <LegalSection title="2. Jakie dane mogą być przetwarzane">
         <ul>
           <li><strong>Dane wpisane do analizy:</strong> treść wiadomości, opis sytuacji, próbki stylu i ostatnie wymiany z wybranego wątku.</li>
+          <li><strong>Nagrania do transkrypcji:</strong> plik audio lub nagranie z mikrofonu, wyłącznie gdy samodzielnie wybierzesz funkcję transkrypcji głosowej.</li>
           <li><strong>Dane zapisane lokalnie:</strong> profil sprawy, historia wątków, wyniki i odpowiedzi oznaczone jako wysłane.</li>
           <li><strong>Dane techniczne:</strong> adres IP, rodzaj urządzenia i przeglądarki, czas żądania, błędy oraz informacje potrzebne do bezpieczeństwa hostingu.</li>
           <li><strong>Dane analityczne:</strong> nazwane zdarzenia produktowe, np. rozpoczęcie demo lub ukończenie analizy, bez treści sprawy.</li>
@@ -63,6 +64,7 @@ export default function PrivacyPage() {
       <LegalSection title="4. Gdzie trafiają dane">
         <ul>
           <li><strong>Groq:</strong> dostawca infrastruktury modelu AI analizującego treść; dane zwykłych zapytań nie są według dostawcy domyślnie przechowywane, z wyjątkami dotyczącymi niezawodności i przeciwdziałania nadużyciom.</li>
+          <li><strong>ElevenLabs:</strong> dostawca transkrypcji mowy na tekst. Nagranie trafia tam tylko po kliknięciu funkcji głosowej; Metis nie zachowuje surowego audio. Standardowe zasady retencji ElevenLabs mają zastosowanie do przesłanego nagrania.</li>
           <li><strong>Vercel:</strong> hosting strony, serwera API i techniczna obsługa żądań.</li>
           <li><strong>PostHog EU:</strong> ograniczona analityka nazwanych zdarzeń bez treści wiadomości i bez nagrywania sesji.</li>
           <li><strong>Dostawca poczty:</strong> tylko jeśli samodzielnie wyślesz wiadomość dotyczącą prywatności, bezpieczeństwa lub błędu.</li>
@@ -72,6 +74,7 @@ export default function PrivacyPage() {
           W takich przypadkach transfer opiera się na mechanizmach stosowanych przez
           dostawcę, np. standardowych klauzulach umownych. Zobacz też{" "}
           <a href="https://console.groq.com/docs/your-data" target="_blank" rel="noreferrer">informacje Groq</a>,{" "}
+          <a href="https://elevenlabs.io/privacy" target="_blank" rel="noreferrer">informacje ElevenLabs</a>,{" "}
           <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noreferrer">informacje Vercel</a> i{" "}
           <a href="https://posthog.com/privacy" target="_blank" rel="noreferrer">informacje PostHog</a>.
         </p>
@@ -82,6 +85,7 @@ export default function PrivacyPage() {
           <li>Dane profilu i historii pozostają w Twojej przeglądarce, dopóki ich nie usuniesz albo nie wyczyścisz danych witryny.</li>
           <li>Wynik demo jest tymczasowy; lokalna informacja o wykorzystaniu próby może pozostać do wyczyszczenia danych witryny.</li>
           <li>Treść przekazana do API Groq podlega zasadom przechowywania dostawcy opisanym powyżej.</li>
+          <li>Nagranie przekazane do ElevenLabs podlega zasadom przechowywania tego dostawcy. Metis nie tworzy własnej kopii audio.</li>
           <li>Metadane techniczne i analityczne są przechowywane zgodnie z ustawieniami oraz uzasadnionymi okresami retencji dostawców.</li>
           <li>Korespondencję przechowujemy do zakończenia sprawy, a dłużej tylko wtedy, gdy wymaga tego prawo lub obrona przed roszczeniami.</li>
         </ul>

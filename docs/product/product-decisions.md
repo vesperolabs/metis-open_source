@@ -44,11 +44,14 @@ For high-risk messages, the default is to withhold a proposed reply and surface 
 - Responses use strict JSON schemas and frontend validation.
 - All user-facing generated text must be in Polish; technical enum values remain stable in English.
 - Incoming-message analysis supports a manual prompt mode through `USE_MANUAL_AI=true`.
+- Optional speech-to-text uses ElevenLabs Scribe only through a server-side route and `ELEVENLABS_API_KEY`.
+- A transcript is editable and is added to a text field; it is never analyzed or saved automatically.
 
 ## Privacy
 
 - Persistent case data and history stay in browser storage.
 - The product must accurately disclose that selected content leaves the device when the user requests AI analysis.
+- Audio leaves the device only when the user explicitly requests transcription. Metis does not persist raw audio, but must disclose the external provider and its retention terms.
 - Analytics must contain interaction metadata only, never user or model content.
 - Real case data must never be committed to the repository or posted in public project discussions.
 

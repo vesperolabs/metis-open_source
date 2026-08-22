@@ -10,6 +10,9 @@ flowchart LR
     A -->|"server-side request"| G["Groq API"]
     G -->|"strict JSON response"| A
     A -->|"validated result"| U
+    U -->|"optional audio, on request"| T["Next.js transcription route"]
+    T -->|"server-side request"| E["ElevenLabs Speech-to-Text"]
+    E -->|"editable transcript"| U
     U --> L["localStorage: case profile and threads"]
     U --> S["sessionStorage: demo state"]
     U -. "metadata-only events" .-> P["PostHog EU, optional"]
@@ -28,6 +31,10 @@ The browser stores the case profile and conversation threads in `localStorage`. 
 ### Groq
 
 Groq processes the message, selected case context, writing-style samples and up to three recent exchanges from the selected thread. The model is fixed in `lib/groq.ts` as `openai/gpt-oss-120b`.
+
+### ElevenLabs speech-to-text
+
+`app/api/transcribe/route.ts` accepts an audio file only after the user explicitly chooses to record or upload it. It sends the file to ElevenLabs Scribe (`scribe_v2`, with Polish selected) using the server-only `ELEVENLABS_API_KEY`, returns text for the user to edit, and does not store raw audio. A browser-local courtesy limit permits three recordings per calendar month and the UI limits recordings to three minutes. That client-side limit is not abuse-resistant.
 
 ### Analytics
 
@@ -66,7 +73,7 @@ There is no cross-device synchronization. Clearing browser storage removes the l
 
 ## Failure handling
 
-The Groq client uses a 30-second timeout. It preserves HTTP 429 behavior and retry hints, and maps transient upstream failures to controlled server responses. Incoming-message analysis can use a manual prompt fallback when `USE_MANUAL_AI=true`; draft evaluation requires Groq.
+The Groq client uses a 30-second timeout. It preserves HTTP 429 behavior and retry hints, and maps transient upstream failures to controlled server responses. The ElevenLabs client uses a 60-second timeout and maps rate limiting, timeouts and malformed responses to controlled Polish errors. Incoming-message analysis can use a manual prompt fallback when `USE_MANUAL_AI=true`; draft evaluation requires Groq.
 
 ## Repository structure
 
@@ -79,4 +86,4 @@ The Groq client uses a 30-second timeout. It preserves HTTP 429 behavior and ret
 
 ## Deployment
 
-The reference deployment runs on Vercel. Required production secrets are configured in the hosting environment, not committed to Git. A fork can be deployed to any platform that supports the Next.js server runtime.
+The reference deployment runs on Vercel. Required production secrets (`GROQ_API_KEY` and, for speech-to-text, `ELEVENLABS_API_KEY`) are configured in the hosting environment, not committed to Git. A fork can be deployed to any platform that supports the Next.js server runtime.
