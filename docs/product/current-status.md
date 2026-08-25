@@ -23,7 +23,7 @@ The reference interface is in Polish and targets communication in Polish family 
 - Explicit Polish-language output requirement for all user-facing generated text.
 - High-risk boundary that can withhold a draft and prepare questions for a lawyer.
 - Gender-symmetric and evidence-based prompt rules: calm can be firm, allegations are not assumed true and hidden intentions are not presented as facts.
-- Optional content-free PostHog analytics.
+- Vercel Web Analytics for page views and optional content-free PostHog events.
 - Optional voice-to-text input for case context, received messages and the user's own draft. Every transcript is shown in an editable field before use.
 - Public security, privacy and terms pages in the application.
 - Synthetic tests for response contracts, safety behavior, local persistence and API failure handling.

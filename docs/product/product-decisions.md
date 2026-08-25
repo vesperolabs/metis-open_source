@@ -52,7 +52,7 @@ For high-risk messages, the default is to withhold a proposed reply and surface 
 - Persistent case data and history stay in browser storage.
 - The product must accurately disclose that selected content leaves the device when the user requests AI analysis.
 - Audio leaves the device only when the user explicitly requests transcription. Metis does not persist raw audio, but must disclose the external provider and its retention terms.
-- Analytics must contain interaction metadata only, never user or model content.
+- Analytics may measure page views and interaction metadata only; it must never receive user or model content.
 - Real case data must never be committed to the repository or posted in public project discussions.
 
 ## Public-project status

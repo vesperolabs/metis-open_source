@@ -16,6 +16,7 @@ flowchart LR
     U --> L["localStorage: case profile and threads"]
     U --> S["sessionStorage: demo state"]
     U -. "metadata-only events" .-> P["PostHog EU, optional"]
+    U -. "page views" .-> V["Vercel Web Analytics"]
 ```
 
 ## Trust boundaries
@@ -38,7 +39,7 @@ Groq processes the message, selected case context, writing-style samples and up 
 
 ### Analytics
 
-PostHog is optional. Analytics events may contain interaction metadata but must never contain message content, case context, generated responses or replies marked as sent.
+PostHog is optional. Its named events may contain interaction metadata but must never contain message content, case context, generated responses or replies marked as sent. Vercel Web Analytics measures page views; Metis does not send case content, message text or generated responses to it.
 
 ## Response contract
 

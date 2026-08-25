@@ -64,3 +64,13 @@ test("voice transcription visibly confirms when recording is active", () => {
   assert.match(voiceInput, /animate-pulse/);
   assert.match(voiceInput, /aria-live="polite"/);
 });
+
+test("Vercel Web Analytics is mounted globally without case-content tracking", () => {
+  const layout = source("app/layout.tsx");
+  const architecture = source("ARCHITECTURE.md");
+
+  assert.match(layout, /@vercel\/analytics\/next/);
+  assert.match(layout, /<VercelAnalytics \/>/);
+  assert.match(architecture, /Vercel Web Analytics/);
+  assert.match(architecture, /does not send case content/i);
+});

@@ -70,6 +70,8 @@ USE_MANUAL_AI=false
 
 `NEXT_PUBLIC_POSTHOG_KEY` is optional. Leave it empty to run without analytics. Set `USE_MANUAL_AI=true` to return a copyable prompt instead of calling Groq for incoming-message analysis.
 
+Vercel Web Analytics is included for anonymous page-view measurement on Vercel deployments. It does not require an environment variable.
+
 Voice transcription uses ElevenLabs Scribe with Polish language selection. The browser enforces a courtesy limit of three recordings per month per device, with a three-minute maximum per recording. This is not a security-grade rate limit, so fork operators should set their own provider limits as well.
 
 ## Verification

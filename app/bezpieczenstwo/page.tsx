@@ -69,15 +69,18 @@ export default function SecurityPage() {
 
       <LegalSection title="Ograniczona analityka">
         <p>
-          Używamy PostHog w regionie UE. Automatyczne śledzenie kliknięć, nagrywanie
-          sesji, pomiary wydajności, ankiety i automatyczne odsłony są wyłączone.
-          Biblioteka analityczna korzysta tylko z pamięci bieżącej karty. Jeśli adres
-          wejścia zawiera parametr <code>?u=</code>, jego wartość może zostać zapisana
-          lokalnie jako identyfikator źródła wejścia.
+          Używamy Vercel Web Analytics do anonimowego pomiaru odsłon oraz opcjonalnego
+          PostHog w regionie UE do ograniczonej analityki zdarzeń. W PostHog automatyczne
+          śledzenie kliknięć, nagrywanie sesji, pomiary wydajności, ankiety i automatyczne
+          odsłony są wyłączone. Biblioteka PostHog korzysta tylko z pamięci bieżącej karty.
+          Jeśli adres wejścia zawiera parametr <code>?u=</code>, jego wartość może zostać
+          zapisana lokalnie jako identyfikator źródła wejścia.
         </p>
         <p>
-          Lista zdarzeń jest kontrolowana w kodzie. Treść wiadomości, kontekst sprawy,
-          proponowane odpowiedzi i odpowiedzi wysłane nie są właściwościami zdarzeń.
+          Lista zdarzeń jest kontrolowana w kodzie. Vercel Analytics otrzymuje wyłącznie
+          informacje potrzebne do pomiaru odsłony strony. Treść wiadomości, kontekst sprawy,
+          proponowane odpowiedzi i odpowiedzi wysłane nie są przesyłane do żadnego narzędzia
+          analitycznego.
         </p>
       </LegalSection>
 

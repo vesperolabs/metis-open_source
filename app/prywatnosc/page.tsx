@@ -66,6 +66,7 @@ export default function PrivacyPage() {
           <li><strong>Groq:</strong> dostawca infrastruktury modelu AI analizującego treść; dane zwykłych zapytań nie są według dostawcy domyślnie przechowywane, z wyjątkami dotyczącymi niezawodności i przeciwdziałania nadużyciom.</li>
           <li><strong>ElevenLabs:</strong> dostawca transkrypcji mowy na tekst. Nagranie trafia tam tylko po kliknięciu funkcji głosowej; Metis nie zachowuje surowego audio. Standardowe zasady retencji ElevenLabs mają zastosowanie do przesłanego nagrania.</li>
           <li><strong>Vercel:</strong> hosting strony, serwera API i techniczna obsługa żądań.</li>
+          <li><strong>Vercel Web Analytics:</strong> anonimowe pomiary odsłon stron potrzebne do zrozumienia użycia publicznego demo, bez treści sprawy.</li>
           <li><strong>PostHog EU:</strong> ograniczona analityka nazwanych zdarzeń bez treści wiadomości i bez nagrywania sesji.</li>
           <li><strong>Dostawca poczty:</strong> tylko jeśli samodzielnie wyślesz wiadomość dotyczącą prywatności, bezpieczeństwa lub błędu.</li>
         </ul>
